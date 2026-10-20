@@ -48,10 +48,3 @@ Warehouses often face challenges with real-time inventory tracking, structural o
 
 * **Wokwi Simulation:** [View Live Simulation](https://wokwi.com/projects/435813032575352833)
 * **Demo Video:** [Watch Video Demo on Google Drive](https://drive.google.com/file/d/1Y7X_FPdb0d7yk4srHoZADahY-cGcOP1/view?usp=sharing)
-
----
-
-## Author
-
-* **Aviral Jha** (Reg. No.: 23BEC0387)
-* **Institution:** Vellore Institute of Technology (VIT), Vellore
