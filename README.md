@@ -1,103 +1,57 @@
-AIM
+# Smart Load Monitoring System
 
-To design and implement an IoT-based load monitoring system that:
+An IoT-based load monitoring system built with an ESP32 microcontroller and an HX711 load cell amplifier. This system continuously measures material weight using strain gauge technology, displays real-time values on an LCD, and provides automated threshold alerts via a local web dashboard.
 
-1.Continuously measures material weight using strain gauge technology
+---
 
-2.Provides real-time weight visualization through multiple interfaces
+## Project Overview
 
-3.Automatically alerts warehouse staff about critical weight conditions
+Warehouses often face challenges with real-time inventory tracking, structural overloading, and production stoppages due to material depletion. This system solves those issues by offering automated continuous weight monitoring and instant alerts when weights cross safe operational thresholds.
 
-4.Prevents operational disruptions through threshold-based notifications
+---
 
-PROBLEM STATEMENT
+## Key Features
 
-Warehouses face challenges in:
+* **Hardware Monitoring:** Continuous weight measurement (0–500g range) with high-precision sensing and real-time visualization on a 16x2 I2C LCD.
+* **Threshold Alert System:** Automatically triggers visual warnings and browser pop-ups for **Weight Depletion (<200g)** and **Weight Overload (>500g)**.
+* **Local Web Dashboard:** Serves an asynchronous web server on the ESP32, allowing remote access and real-time updates via local Wi-Fi without internet dependency.
+* **Self-Calibration & Taring:** Includes automated tare routines to zero out the scale during initialization.
 
-1.Real-time monitoring of material inventory levels
+---
 
-2.Preventing structural damage from overloading
+## Technical Stack & Components
 
-3.Avoiding production stoppages due to material depletion
+### Hardware Components
+* ESP32 Microcontroller
+* HX711 Load Cell Amplifier
+* 5kg Strain Gauge Load Cell
+* 16x2 I2C LCD Display
+* Breadboard and Jumper Wires
 
-4.Manual monitoring inefficiencies leading to human error
+### Software & Libraries
+* Arduino IDE
+* `HX711` Library
+* `LiquidCrystal_I2C` Library
+* `WiFi` and `WebServer` Libraries
 
-5.Lack of instant alerts for critical weight conditions
+---
 
-This system solves these problems by providing automated, continuous monitoring with instant visual alerts when weight exceeds safe operational thresholds.
+## System Architecture & Code Flow
 
-SCOPE OF THE SOLUTION
+1. **Initialization:** Hardware components initialize, the LCD shows a boot sequence, and the scale performs a tare operation.
+2. **Network Connection:** The ESP32 connects to a local Wi-Fi network and starts an HTTP server on port 80.
+3. **Continuous Monitoring:** The loop reads sensor weights every 100ms, evaluates thresholds, and updates the local LCD and web clients.
 
-Hardware Monitoring
+---
 
-1.Continuous weight measurement (0-500g range)
+## Simulation & Demo
 
-2.Real-time display on LCD
+* **Wokwi Simulation:** [View Live Simulation](https://wokwi.com/projects/435813032575352833)
+* **Demo Video:** [Watch Video Demo on Google Drive](https://drive.google.com/file/d/1Y7X_FPdb0d7yk4srHoZADahY-cGcOP1/view?usp=sharing)
 
-3.Precision sensing with ±0.1g resolution
+---
 
-Alert System
+## Author
 
-1.Visual warnings on web interface
-
-2.Browser pop-up notifications
-
-3.Threshold triggers: <200g (depletion) and >500g (overload)
-
-Remote Access
-
-  1.Real-time web dashboard
-  
-  2.Cross-device compatibility (mobile/desktop)
-  
-  3.Local network access (no internet required)
-
-Operational Parameters
-
-  1.Measurement frequency: 2 updates/second
-  
-  2.Alert persistence until condition resolves
-  
-  3.Self-calibration capability
-
-REQUIRED COMPONENTS
-
-Hardware
-
-  1.ESP32 microcontroller
-  
-  2.HX711 load cell amplifier
-  
-  3.5kg strain gauge load cell
-  
-  4.16x2 I2C LCD
-  
-  5.Breadboard
-  
-  6.Jumper wires
-  
-  7.Micro-USB cable
-
-Software
-
-  1.Arduino IDE
-  
-  2.HX711 library
-  
-  3.LiquidCrystal_I2C library
-  
-  4.WebServer library
-  
-  5.WiFi library
-
-Cloud/Network
-
-  1.Wi-Fi hotspot (Any smartphone/access point)
-  
-  2.Local network infrastructure
-
-Monitoring Tools
-
-  1.Web browser (Chrome/Firefox/Safari)
-  
-  2.Serial monitor for debugging
+* **Aviral Jha** (Reg. No.: 23BEC0387)
+* **Institution:** Vellore Institute of Technology (VIT), Vellore
