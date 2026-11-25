@@ -10,8 +10,8 @@
 HX711 scale;
 
 // Wi-Fi credentials
-const char* ssid = "Galaxy A70AD8B";
-const char* password = "skrs5399";
+const char* ssid = "..";
+const char* password = "...";
 
 WebServer server(80);
 
